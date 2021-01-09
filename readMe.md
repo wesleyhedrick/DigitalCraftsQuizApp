@@ -12,7 +12,7 @@
 -   As a User, I would like to see my progress, so I can keep track on how well I do or don't.
 -   As a User, I would like to be able to learn on a platform, that is easy to use and engaging.
 
-## Student Persona | Goals and Needs
+### Student Persona | Goals and Needs
 
 -   Learn something
 -   See my Score
