@@ -1,6 +1,6 @@
 module.exports = {
     heroRouter: require('./heroRouter'),
-    loginRouter: require('./login'),
+    loginRouter: require('./loginRouter'),
     quizRouter: require('./quiz'),
     confirmationRouter: require('./confirmation'),
     questionSubmissionRouter: require('./questionSubmissionRouter'),
