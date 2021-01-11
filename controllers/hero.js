@@ -1,4 +1,3 @@
-const hero = (req, res) => res.send('hero')
-
+const hero = (req, res) => res.render('hero')
 
 module.exports = {hero}
