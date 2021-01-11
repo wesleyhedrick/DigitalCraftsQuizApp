@@ -1,49 +1,44 @@
-const bcrypt = require('bcryptjs');
-const { layout } = require('../utils');
 const { Users } = require('../models');
+const bcrypt = require('bcryptjs');
 
-const RegisterUser = (req, res) => {
-    res.render('signUp-form', { 
-    //     - foggy memory on this with my notes
-    //     locals: {
-    //         title: 'Register'
-    //     },
-    //     ...layout
-    });
-        
-    };
-const createNewUser = async (req, res) => {
-    const { fullName, userName, email, password} = req.body
+const loginLanding = (req, res) => {
+    res.render('login')
+};
 
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
-        try {
-            const newUser = await Users.create({
-                fullname,
-                username,
-                email,
-                hash
-            });
-            //res.reirect('/login') chris' notes have a res.redirect here after the information is created
-        } catch (e) {
-            if(e.name === "SequelizeUniqueConstraintError") {
-                res.redirect('/login');
+const loginVerify = async (req, res) => {
+    const {username, password} = req.body;
+    console.log('Username: ', username)
+    console.log('Password: ', password)
 
-            }
-            res.redirect('/');
+    // Check to see if they exist in the database. If so redirect to quiz selection page
+    const user = await Users.findOne({
+        where: {
+            username
+        }
+    })
 
+    if(user) {
+        //Compare req.body.password with user.hash
+        const isValid = bcrypt.compareSync(password, user.hash);
+        //If password matches with hash
+        if(isValid){
+            res.redirect('quiz')
+        } else {
+            res.send('Login Error')
+        }
+    } else {
+        res.send('Login Error')
+    }
 
-
-        };
-        
-            
-        };
-
-        const userNameExists = (req, res) => {
-            res.render('user-exists')
-        };
-
-const loginLanding = (req, res) => res.send('login');
+    // if not rerender login page with error message
 
 
-module.exports = {loginLanding , RegisterUser, createNewUser, userNameExists};
+
+
+}
+
+module.exports = {
+    loginLanding, 
+    loginVerify
+};
+
