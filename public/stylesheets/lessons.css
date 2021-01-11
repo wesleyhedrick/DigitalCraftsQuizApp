@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    /* align-items: center; */
+	background: #EFEBE7 ;
+    font-family: 'Poppins', sans-serif;
+}
+
+.lessons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+h1 {
+    color: #f04c1e;
+    padding: 0 0 20px 0;
+}
+
+select {
+    font-family: 'Poppins', sans-serif;
+	font-size: 1.1rem;
+	padding: 4px 0;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	background: #f7f7f7;
+}
+
+input {
+    font-family: 'Poppins', sans-serif;
+	font-size: 1.1rem;
+	padding: 4px 0;
+	background-color:#f04c1e;
+	border-radius:6px;
+	border: none;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-weight:500;
+	padding:8px 25px;
+    text-decoration:none;
+    margin: 2.5rem 0;
+}
+
+input:hover {
+	background-color:#f76f49;
+}
+
+input:active {
+	position:relative;
+	top:1px;
+}
