@@ -19,7 +19,7 @@ const {
     confirmationRouter,
     questionSubmissionRouter,
     leaderBoardRouter, 
-} = require('./routes')
+} = require('./routers')
 
 
 
