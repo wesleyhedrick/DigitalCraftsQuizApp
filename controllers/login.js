@@ -1,3 +1,3 @@
-const loginLanding = (req, res) => {res.render('login')};
+const loginLanding = (req, res) => res.send('login');
 
-module.exports = loginLanding;
+module.exports = {loginLanding};

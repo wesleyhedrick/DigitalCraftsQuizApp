@@ -4,5 +4,5 @@ module.exports = {
     quizController: require('./quiz'),
     confirmationController: require('./confirmation'),
     questionSubmissionController: require('./questionSubmission'),
-    leaderBoardController: require('./leaderBoard')
+    leaderboardController: require('./leaderboard')
 }
