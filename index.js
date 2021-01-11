@@ -11,7 +11,39 @@ const app = express();
 const logger = morgan('dev');
 const hostname = '127.0.0.1';
 //Register Middleware
+
 app.use(logger);
+app.use('/', heroRouter);
+
+app.use('/quiz', quizRouter);
+app.use('/leaderboard', leaderBoardRouter);
+app.use('/confirmation', confirmationRouter);
+app.use('/question-submit', questionSubmissionRouter);
+
+const { 
+    heroRouter,
+    leaderBoardRouter,
+    quizRouter,
+    confirmationRouter,
+    questionSubmissionRouter,
+
+
+
+} = require ('./routers/index');
+
+const { 
+    heroController,
+    leaderBoardController,
+    quizController,
+    confirmationController,
+    questionSubmissionController,
+
+
+
+} = require ('./controllers/index');
+
+
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 // disabling for local development
