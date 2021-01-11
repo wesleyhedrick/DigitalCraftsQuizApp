@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="stylesheets/quiz-app.style.css">
-    <title>Submit a Question</title>
-</head>
-<body>
-    <form action="" method="POST">
-        <label for="question"> Question
-        </label>
-        <input type="text" id="question" name="question">
-        <label for="correctAnswer"> Correct Answer
-        </label>
-        <input type="text" id="correct-answer" name="correctAnswer">
-        <label for="wrongAnswer1">Wrong Answer 1
-        </label>
-        <input type="text" id="wrongAnswer1" name="wrongAnswer1">
-        <label for="wrongAnswer2">Wrong Answer 2
-        </label>
-        <input type="text" id="wrongAnswer2" name="wrongAnswer2">
-        <label for="wrongAnswer3">Wrong Answer 3</label>
-        <input type="text" id="wrongAnswer3" name="wrongAnswer3">
-        <label for="category">Category</label>
-        <select name="category" id="category">
-            <option value="1">Command Line</option>
-            <option value="2">CSS</option>
-            <option value="3">Databases</option>
-            <option value="4">DOM Manipulation</option>
-            <option value="5">Express JS</option>
-            <option value="6">HTML</option>
-            <option value="7">JavaScript</option>
-            <option value="8">Node.JS</option>
-            <option value="9">Python</option>
-            <option value="10">React</option>
-            <option value="11">Redux</option>
-            <option value="12" selected>Other</option>
-        </select>
-        
-
-
-        <input type="submit" value="Submit">
-        
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="stylesheets/quiz-app.style.css">
+        <title>Submit a Question</title>
+    </head>
+    <body>
+        <form action="" method="POST">
+            <label for="category">Category</label>
+            <select name="category" id="category">
+                <option value="1">Command Line</option>
+                <option value="2">CSS</option>
+                <option value="3">Databases</option>
+                <option value="4">DOM Manipulation</option>
+                <option value="5">Express JS</option>
+                <option value="6">HTML</option>
+                <option value="7">JavaScript</option>
+                <option value="8">Node.JS</option>
+                <option value="9">Python</option>
+                <option value="10">React</option>
+                <option value="11">Redux</option>
+                <option value="12" selected>Other</option>
+            </select>
+            <label for="question"> Question</label>
+            <textarea name="question" id="question" cols="20" rows="5"></textarea>
+            <label for="correctAnswer"> Correct Answer</label>
+            <textarea name="correctAnswer" id="" cols="20" rows="5"></textarea>
+            
+            <label for="wrongAnswer1">Wrong Answer 1</label>
+            <textarea name="wrongAnswer1" id="wrongAnswer1" cols="20" rows="5"></textarea>
+            
+            <label for="wrongAnswer2">Wrong Answer 2</label>
+            <textarea name="wrongAnswer2" id="wrongAnswer2" cols="20" rows="5"></textarea>
+            
+            <label for="wrongAnswer3">Wrong Answer 3</label>
+            <textarea name="wrongAnswer3" id="wrongAnswer3" cols="20" rows="5"></textarea>
+    
+            
+    
+    
+            <input type="submit" value="Submit">
+            
     </form>
 </body>
 </html>

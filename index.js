@@ -18,7 +18,7 @@ const {
     quizRouter,
     confirmationRouter,
     questionSubmissionRouter,
-    leaderBoardRouter, 
+    leaderboardRouter, 
 } = require('./routers')
 
 
@@ -51,7 +51,7 @@ app.use('/question-submit', questionSubmissionRouter);
 app.use('/', heroRouter);
 app.use('/login', loginRouter)
 app.use('/quiz', quizRouter);
-app.use('/leader-board', leaderBoardRouter);
+app.use('/leader-board', leaderboardRouter);
 app.use('/confirmation', confirmationRouter);
 
 
