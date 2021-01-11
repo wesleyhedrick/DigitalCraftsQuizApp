@@ -59,7 +59,9 @@ app.use('/confirmation', confirmationRouter);
 app.get('*', (req, res) => {
     res.status(404).send('<h1>Page not found</h1>');
 });
-server.listen(3000, hostname, () => {
-    console.log('Server running at localhost, port 3000');
+const PORT = process.env.PORT;
+
+server.listen(PORT, hostname, () => {
+    console.log(`Server running at localhost, port ${PORT}`);
 });
 
