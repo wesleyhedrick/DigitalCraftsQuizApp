@@ -43,7 +43,4 @@ const createNewUser = async (req, res) => {
             res.render('user-exists')
         };
 
-const loginLanding = (req, res) => res.send('login');
-
-
-module.exports = {loginLanding , RegisterUser, createNewUser, userNameExists};
+        module.exports = { RegisterUser, createNewUser, userNameExists}
