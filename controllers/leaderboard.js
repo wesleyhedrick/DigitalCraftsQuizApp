@@ -1,3 +1,5 @@
-const leaderBoard = (req, res) => {res.render('leaderBoard')}
+const leaderboard = (req, res) => {res.send('leaderboard')}
 
-module.exports = leaderboard
+module.exports = {
+    leaderboard
+}

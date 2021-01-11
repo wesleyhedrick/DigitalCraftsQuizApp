@@ -5,5 +5,10 @@ const {heroController} = require('../controllers');
 
 router.get('/', heroController.hero)
 
+module.exports = router;
 
-module.exports = router
+
+
+
+
+
