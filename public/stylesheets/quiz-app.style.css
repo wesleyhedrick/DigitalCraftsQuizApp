@@ -1,0 +1,14 @@
+body {
+    width: 100vw;
+    background: #EFEBE7;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:  1px solid black;
+}
+
