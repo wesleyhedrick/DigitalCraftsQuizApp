@@ -12,7 +12,16 @@ const app = express();
 const logger = morgan('dev');
 const hostname = '127.0.0.1';
 
-const {questionSubmissionRouter} = require('./routes')
+const {
+    heroRouter,
+    loginRouter,
+    quizRouter,
+    confirmationRouter,
+    questionSubmissionRouter,
+    leaderBoardRouter, 
+} = require('./routes')
+
+
 
 //Register Middleware
 app.use(logger);
@@ -35,7 +44,16 @@ app.engine('html', es6Renderer);
 app.set('views', 'templates');
 app.set('view engine', 'html');
 const server = http.createServer(app);
+
+
+
 app.use('/question-submit', questionSubmissionRouter);
+app.use('/', heroRouter);
+app.use('/login', loginRouter)
+app.use('/quiz', quizRouter);
+app.use('/leader-board', leaderBoardRouter);
+app.use('/confirmation', confirmationRouter);
+
 
 //Error Handling for Bad Routes
 app.get('*', (req, res) => {
