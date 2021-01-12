@@ -1,0 +1,17 @@
+const saveProgress = (req, res) => {
+    //get all info from session
+    //1. Score
+    //2. What is left of the array of Question Ids
+    //3. question Ids of missed Questions, coupled with which wrong answer they selected
+
+    //insert necessary information into database
+
+
+    //render the page that says progress saved
+    res.render('progress-saved')
+};
+
+
+module.exports = {
+    saveProgress
+}

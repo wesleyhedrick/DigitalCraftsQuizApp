@@ -13,7 +13,7 @@ const loginVerify = async (req, res) => {
     // Check to see if they exist in the database. If so redirect to quiz selection page
     const user = await Users.findOne({
         where: {
-            username
+            Username: username
         }
     })
 
@@ -22,15 +22,15 @@ const loginVerify = async (req, res) => {
         const isValid = bcrypt.compareSync(password, user.hash);
         //If password matches with hash
         if(isValid){
-            res.redirect('quiz')
+            res.redirect('/quiz');
         } else {
-            res.send('Login Error')
+            res.redirect('sign-up');
         }
     } else {
-        res.send('Login Error')
+        res.redirect('sign-up');
     }
 
-    // if not rerender login page with error message
+
 
 
 

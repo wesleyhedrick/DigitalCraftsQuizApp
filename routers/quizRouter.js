@@ -5,6 +5,6 @@ const {quizController} = require('../controllers')
 
 router.get('/', quizController.quizSettings)
       .get('/question', quizController.quizQuestion) 
-      .get('/feedback', quizController.questionFeedback)  
+      .post('/question', quizController.questionFeedback)  
       .get('/quiz-feedback', quizController.quizFeedback)
 module.exports = router
