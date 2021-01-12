@@ -10,7 +10,6 @@ const signUpForm = (req, res) => {
     //     },
     //     ...layout
     });
-        
 };
 
 const createNewUser = async (req, res) => {

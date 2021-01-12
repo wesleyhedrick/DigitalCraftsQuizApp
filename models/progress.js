@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Progress.init({
     Score: DataTypes.INTEGER,
-    Question_Id: DataTypes.INTEGER,
+    Missed_Question_Id: DataTypes.INTEGER,
     Player_Selection: DataTypes.STRING,
     Correct_Answer: DataTypes.STRING
   }, {

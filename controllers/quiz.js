@@ -18,7 +18,6 @@ const quizSettings = async (req, res) => {
         .forEach(item => req.session.questionIds.push(item.dataValues.id));
     
     req.session.questionIds = shuffle(req.session.questionIds);
-    
     res.redirect('quiz/question')
 }
 
@@ -38,9 +37,9 @@ const quizQuestion = async (req, res) => {
     let questionNum = req.session.questionNum;
     let score = req.session.score;
 
-    console.log(last, questionObject, req.session.thisQuestionId, 
-        answers, question,req.session.correctAnswer, questionNum,score);
-    res.render('quiz-question', {
+    res.json(answers)
+    return
+    res.render('main-quiz', {
         locals: {
             question, 
             answers, 
@@ -69,19 +68,15 @@ const questionFeedback = async (req, res) => {
     
     //EVALUATE ANSWER. ADJUST SCORE. SELECT THE APPROPRIATE PARTIALS FILE
     if(playerAnswer === correctAnswer){
+        console.log('That was correct answer')
         req.session.score +=1
         ruling = '/partials/correct'
     } else {
-        for (k in questionObject) {
-            if(questionObject[k]===playerAnswer){
-                wrongAnswer = k;
-            }
-        }
+        console.log('That was incorrect answer')
         missedQuestionId = req.session.thisQuestionId;
         req.session.incorrectAnswers.push({missedQuestionId, wrongAnswer});
         ruling = '/partials/incorrect'
     }
-
 
     //DECIDE IF ITS THE LAST QUESTION. AND RENDER THE APPROPRIATE PAGE
     //IF LAST, NEXT = GO-TO-END
@@ -90,7 +85,8 @@ const questionFeedback = async (req, res) => {
     } else {
         next = '/partials/next-question'
     }
-
+    res.json({playerAnswer,correctAnswer})
+    return
     //RENDER QUESTION FEEDBACK PAGE
     res.render('question-feedback', {
         locals: {
