@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-	background: #EFEBE7 ;
+    background: #EFEBE7 ;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -21,6 +21,7 @@ body {
 
 .container {
     display: flex;
+    justify-content: column;
 }
 
 .score {
@@ -41,7 +42,7 @@ h2 {
 .links {
     box-shadow: 0 0 25px #dad5cf74;   
     width: 400px;
-    height: 380px;
+    height: 200px;
     border-radius: 5px;
     background: #95D5E0;
     color: #386B8B;
@@ -54,9 +55,23 @@ h3 {
 
 .missed {
     box-shadow: 0 0 25px #dad5cf74;   
-    width: 600px;
-    height: 600px;
+    width: 820px;
+    height: 300px;
     border-radius: 5px;
     background: #F6F4F2;
     color: #F04C1E;
 }
+
+
+/* Responsive */
+
+@media screen and (max-width: 575px) {
+    .container {
+        display: block;
+        
+    }
+
+    .missed {
+      flex-direction: start;
+    }
+  }
