@@ -12,28 +12,17 @@ const saveProgress = async (req, res) => {
     console.log(missedQuestionsAndAnswers)
     //insert necessary information into database
 
-    // await Promise.all(
-    //     missedQuestionsAndAnswers.map(async (item) => {
-    //         return await Progress.create({
-    //             Score: score,
-    //             User_id: user_id,
-    //             Missed_Question_Id: item.missedQuestionId,
-    //             Player_Selection: item.wrongAnswer,
-    //             Remaining_Questions: JSON.stringify(questionIds)
-    //         });
-    //     }));
-   try {
-       await Progress.create({
-           Score: 1,
-           User_id: 1,
-           Missed_Question_Id: 11,
-           Player_Selection: `wrongAnswer1`,
-           Remaining_Questions: JSON.stringify(questionIds)
-       });
-
-   } catch(e){
-       console.log(e);
-   }
+    await Promise.all(
+        missedQuestionsAndAnswers.map(async (item) => {
+            return await Progress.create({
+                Score: score,
+                User_id: user_id,
+                Missed_Question_Id: item.missedQuestionId,
+                Player_Selection: item.wrongAnswer,
+                Remaining_Questions: JSON.stringify(questionIds)
+            });
+        }));
+   
 
 
     //render the page that says progress saved
