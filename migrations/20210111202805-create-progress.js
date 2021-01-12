@@ -11,11 +11,8 @@ module.exports = {
       Score: {
         type: Sequelize.INTEGER
       },
-      Question_Id: {
+      Missed_Question_Id: {
         type: Sequelize.INTEGER
-      },
-      Player_Selection: {
-        type: Sequelize.STRING
       },
       Correct_Answer: {
         type: Sequelize.STRING

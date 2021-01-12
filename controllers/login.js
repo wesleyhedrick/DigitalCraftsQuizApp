@@ -22,6 +22,7 @@ const loginVerify = async (req, res) => {
         const isValid = bcrypt.compareSync(password, user.hash);
         //If password matches with hash
         if(isValid){
+            req.session.user_id = user.id;
             res.redirect('/quiz');
         } else {
             res.redirect('sign-up');
