@@ -18,6 +18,8 @@ p {
 	margin: 15px 0 0 0;
 }
 
+/* Form */
+
 .form {
 	margin: 300px 0 0 0;
 	display: flex;
@@ -34,6 +36,8 @@ p {
 	border-radius: 3px;
 	background: #f7f7f7;
 }
+
+/* Sign-up Button */
 
 .signup {
 	background-color:#f04c1e;

@@ -21,6 +21,10 @@ img {
     width: 250px
 }
 
+.content {
+    text-align: center;
+}
+
 h1 {
     color: #f04c1e;
     font-size: 4em;
@@ -32,10 +36,6 @@ p {
     font-weight: 500;
     color: #386B8B;
     margin: 0.5rem 0;
-}
-
-.content {
-    text-align: center;
 }
 
 .hero-btn {
