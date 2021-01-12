@@ -5,6 +5,9 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 	background: #EFEBE7 ;
     font-family: 'Poppins', sans-serif;
 }
@@ -12,47 +15,61 @@ body {
 .quiz {
     display: flex;
     justify-content: center;
+    margin: 100px;
 }
 
 h1 {
     color: #f04c1e;
 }
 
+p {
+    color: #f04c1e;
+    font-weight: 600;
+    padding: 0 0 50px 0;
+}
+
 .question-status {
     display: flex;
     justify-content: space-between;
     width: 900px;
+    margin: 0 0 10px 0;
 }
 
-.question-num span{
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-}
-
-span{
+span {
     color: #386B8B; 
 }
 
-p {
-    color: #f04c1e;
-    font-weight: 600;
-}
+/* Form */
 
 .choices {
     display: flex;
-    justify-content: column;
+    align-content: center;
     box-shadow: 0 0 25px #dad5cf74;   
     width: 900px;
     height: 300px;
     border-radius: 10px;
     background: #F6F4F2;
-    /* margin: 40px; */
 }
 
 form {
+    display: flex;
+    align-items: center;
     margin: 30px 30px;
 }
+
+input[type="radio"] {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 2px;
+    border: 2px solid rgb(165, 156, 156);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+/* Button */
 
 label {
     color: #f04c1e;
@@ -62,7 +79,6 @@ label {
     display: flex;
 	flex-direction: column;
 	align-items: center;
-
 }
 
 .submit {

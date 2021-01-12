@@ -5,11 +5,7 @@
 }
 
 body {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-    /* align-items: center; */
-	background: #EFEBE7 ;
+    background: #EFEBE7 ;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -17,14 +13,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    
+	justify-content: center;
 }
 
 h1 {
     color: #f04c1e;
-    padding: 0 0 20px 0;
+	padding: 0 0 20px 0;
+	margin: 100px 0 0 0 ;
 }
+
+/* Dropdown */
 
 select {
     font-family: 'Poppins', sans-serif;
@@ -35,6 +33,8 @@ select {
 	border-radius: 3px;
 	background: #f7f7f7;
 }
+
+/* Button */
 
 input {
     font-family: 'Poppins', sans-serif;

@@ -4,24 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com"> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/signup.css">
+    <link rel="stylesheet" href="/public/stylesheets/signup.css">
     <title>dcQuiz | Login</title>
 </head>
 <body>
     <div class="form">
         <form method="POST">
-            <p>First Name:</p>
+            <label for="first">First:</label>
             <input type="text" name="first" autofocus>
-            <p>Last Name:</p>
+
+            <label for="last">Last:</label>
             <input type="text" name="last" autofocus>
-            <p>User Name:</p>
+
+            <label for="username">Username:</label>
             <input type="text" name="username">
-            <p>Email:</p>
+
+            <label for="email">Email:</label>
             <input type="text" name="email">
-            <p>Password:</p>
+
+            <label for="password">Password:</label>
             <input type="text" name="password">
+
             <div class="signup-button">
-            <a href="#" class="signup">Sign Up</a>
             <input type="submit" value="Sign Up">
             </div>
         </form>
