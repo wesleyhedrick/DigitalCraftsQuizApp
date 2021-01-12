@@ -28,7 +28,7 @@ const {
 //Register Middleware
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); 
 app.use(helmet());
 
 app.use(session({
@@ -46,8 +46,6 @@ app.engine('html', es6Renderer);
 app.set('views', 'templates');
 app.set('view engine', 'html');
 const server = http.createServer(app);
-
-
 
 app.use('/question-submit', questionSubmissionRouter);
 app.use('/', heroRouter);

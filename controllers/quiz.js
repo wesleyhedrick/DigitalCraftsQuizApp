@@ -6,21 +6,14 @@ const quizSettings = async (req, res) => {
         attributes: [
             'id'
         ], 
-
     })
 
-
-    //STORE QUIZ LENGTH IN SESSION TO LATER FIGURE OUT GRADE PERCENTAGE.
-    req.session.quizLength = questionIds.length;    
-    
-    //MAKE EMPTY ARRAY TO CONTAIN PLAYERS INCORRECT ANSWERS
-    req.session.incorrectAnswers = []
-
-    //Put just the ids in session storage
     req.session.questionIds = [];
-    //INITIALIZE PLAYER SCORE AT ZERO AND QUESTION NUMBER AT 1
+    req.session.quizLength = questionIds.length;      
+    req.session.incorrectAnswers = []
     req.session.score = 0;
     req.session.questionNum = 1;
+
     questionIds
         .forEach(item => req.session.questionIds.push(item.dataValues.id));
     
@@ -47,17 +40,16 @@ const quizQuestion = async (req, res) => {
 
     console.log(last, questionObject, req.session.thisQuestionId, 
         answers, question,req.session.correctAnswer, questionNum,score);
-    // res.render('quiz-question', {
-    //     locals: {
-    //         question, 
-    //         answers, 
-    //         questionNum, 
-    //         score
-
-    //     }, 
-    //     ...layout
-    // })
-    res.send('Quiz Questions')
+    res.render('quiz-question', {
+        locals: {
+            question, 
+            answers, 
+            questionNum, 
+            score
+        }, 
+        ...layout
+    })
+    // res.send('Quiz Questions')
 }
 
 const questionFeedback = async (req, res) => {
@@ -69,24 +61,24 @@ const questionFeedback = async (req, res) => {
 
     //INCREMENT QUESTION NUM
     req.session.questionNum += 1;
+    questionObject = req.session.questionObject
     
     //Determine which wrong answer the player chose. This is so that
     //progress can be saved an incorrect answers pulled up again from
     //the database.
-    questionObject = req.session.questionObject
-    for (k in questionObject) {
-        if(questionObject[k]===playerAnswer){
-            wrongAnswer = k;
-        }
-    }
-
+    
     //EVALUATE ANSWER. ADJUST SCORE. SELECT THE APPROPRIATE PARTIALS FILE
     if(playerAnswer === correctAnswer){
         req.session.score +=1
         ruling = '/partials/correct'
     } else {
+        for (k in questionObject) {
+            if(questionObject[k]===playerAnswer){
+                wrongAnswer = k;
+            }
+        }
         missedQuestionId = req.session.thisQuestionId;
-        req.session.incorrectAnswers.push({missedQuestionId,wrongAnswer});
+        req.session.incorrectAnswers.push({missedQuestionId, wrongAnswer});
         ruling = '/partials/incorrect'
     }
 
