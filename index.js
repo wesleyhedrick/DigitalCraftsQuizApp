@@ -51,7 +51,7 @@ const server = http.createServer(app);
 app.use('/question-submit', questionSubmissionRouter);
 app.use('/', heroRouter);
 app.use('/login', loginRouter)
-// app.use('/sign-up', signUpRouter)
+app.use('/sign-up', signUpRouter)
 app.use('/quiz', quizRouter);
 app.use('/leader-board', leaderboardRouter);
 app.use('/confirmation', confirmationRouter);
