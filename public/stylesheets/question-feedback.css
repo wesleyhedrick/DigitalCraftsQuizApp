@@ -25,6 +25,10 @@ span {
     font-weight: 500;
 }
 
+.correct {
+    color: #f04c1e;
+}
+
 .user-answer {
     display: flex;
     box-shadow: 0 0 25px #dad5cf74;   
@@ -53,12 +57,9 @@ p {
 
 .cta {
     display: flex;
-    justify-content: center;
-    margin: 60px 0 0 0;
-}
-
-.save-btn {
-    flex: .2;  
+    align-items: center;
+    flex-direction: column;
+    margin: 60px 0 0 0;  
 }
 
 .save {
@@ -68,8 +69,9 @@ p {
 	cursor:pointer;
 	color:#f04c1e;
 	font-weight: 500;
-	padding: 8px 25px;
+	padding: 10px 45px;
     text-decoration:none;
+    font-family: 'Poppins', sans-serif;
 }
 
 .save:hover {
@@ -89,9 +91,11 @@ p {
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-weight:500;
+    font-weight:500;
+    font-family: 'Poppins', sans-serif;
 	padding: 10px 45px;
     text-decoration:none; 
+    margin: 0 0 60px 0;
 }
 
 .next:hover {
