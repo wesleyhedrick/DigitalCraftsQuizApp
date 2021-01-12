@@ -3,7 +3,9 @@ const saveProgress = (req, res) => {
     //1. Score
     //2. What is left of the array of Question Ids
     //3. question Ids of missed Questions, coupled with which wrong answer they selected
-
+    const score = req.session.score;
+    const questionIds = req.session.questionIds;
+    
     //insert necessary information into database
 
 

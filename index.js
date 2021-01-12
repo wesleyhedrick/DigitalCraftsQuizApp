@@ -47,8 +47,6 @@ app.set('views', 'templates');
 app.set('view engine', 'html');
 const server = http.createServer(app);
 
-
-
 app.use('/question-submit', questionSubmissionRouter);
 app.use('/', heroRouter);
 app.use('/login', loginRouter)
