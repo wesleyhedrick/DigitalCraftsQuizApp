@@ -2,45 +2,41 @@ const bcrypt = require('bcryptjs');
 const { layout } = require('../utils');
 const { Users } = require('../models');
 
-const RegisterUser = (req, res) => {
-    res.render('signUp-form', { 
+const signUpForm = (req, res) => {
+    res.render('signup', { 
     //     - foggy memory on this with my notes
     //     locals: {
-    //         title: 'Register'
+    //         title: 'Sign Up!'
     //     },
     //     ...layout
     });
         
-    };
+};
+
 const createNewUser = async (req, res) => {
-    const { fullName, userName, email, password} = req.body
+    const { first, last, username, email, password} = req.body
+    const hash = bcrypt.hashSync(password, 10);
+    console.log(first, last, username, email, hash);
 
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
-        try {
-            const newUser = await Users.create({
-                fullname,
-                username,
-                email,
-                hash
-            });
-            //res.reirect('/login') chris' notes have a res.redirect here after the information is created
-        } catch (e) {
-            if(e.name === "SequelizeUniqueConstraintError") {
-                res.redirect('/login');
+    try {
+        const newUser = await Users.create({
+            First: first,
+            Last: last,
+            Username: username,
+            email,
+            hash
+        });
+        //res.redirect('/login') chris' notes have a res.redirect here after the information is created
+    } catch (e) {
+        if(e.name === "SequelizeUniqueConstraintError") {
+            res.redirect('/signup/user-exists');
+        }
+    };
+    res.redirect('/login');
+};
 
-            }
-            res.redirect('/');
+const userNameExists = (req, res) => {
+    res.render('user-exists')
+};
 
-
-
-        };
-        
-            
-        };
-
-        const userNameExists = (req, res) => {
-            res.render('user-exists')
-        };
-
-        module.exports = { RegisterUser, createNewUser, userNameExists}
+module.exports = { signUpForm, createNewUser, userNameExists}

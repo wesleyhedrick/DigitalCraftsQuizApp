@@ -20,6 +20,7 @@ const {
     confirmationRouter,
     questionSubmissionRouter,
     leaderboardRouter, 
+    saveProgressRouter
 } = require('./routers')
 
 
@@ -53,9 +54,9 @@ app.use('/', heroRouter);
 app.use('/login', loginRouter)
 app.use('/sign-up', signUpRouter)
 app.use('/quiz', quizRouter);
-app.use('/leader-board', leaderboardRouter);
+app.use('/leaderboard', leaderboardRouter);
 app.use('/confirmation', confirmationRouter);
-
+app.use('/save-progress', saveProgressRouter);
 
 //Error Handling for Bad Routes
 app.get('*', (req, res) => {
