@@ -104,3 +104,17 @@ label {
 }
 
 
+@media screen and (max-width: 780px) {
+
+    .choices{
+      width: 250px;
+    }
+
+    .question-status{
+        width: 250px;
+    }
+
+    h1 { 
+        font-size: 1.5rem;
+    }
+  }

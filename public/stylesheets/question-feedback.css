@@ -18,6 +18,8 @@ body {
 .question-fb {
     color: #f04c1e;
     margin: 100px;
+    display: flex;
+    align-items: center;
 }
 
 span {
@@ -106,3 +108,19 @@ p {
 	position:relative;
 	top:1px;
 }
+
+
+@media screen and (max-width: 650px) {
+
+    .user-answer {
+      width: 250px;
+    }
+
+    .correct-answer {
+        width: 250px;
+    }
+
+    h1 { 
+        font-size: 1.5rem;
+    }
+  }

@@ -75,24 +75,10 @@ input[type=button] {
 
 
 
+@media screen and (max-width: 650px) {
 
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-	/* Styles */
+    .form input {
+      width: 300px;
 	}
-
-/* @media only screen and (max-width: 500px) {
-    label {
-        display: block;
-        cursor: pointer;
-    }
-    .menu {
-        text-align: center;
-        width: 100%;
-        display: none;
-    }
-    .menu a {
-        display: block;
-        margin: 0;
-    }
-} */
+	
+  }
