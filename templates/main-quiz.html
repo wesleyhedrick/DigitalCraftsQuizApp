@@ -8,51 +8,27 @@
     <title>dcQuiz | Main Quiz</title>
 </head>
 <body>
-    <!-- ${header} -->
+
     <div class="quiz"> 
         <h1>(quiz);</h1>
     </div>
-    <p>Which Array method does not exsist?</p>
+    <h1>${question}</h1>
+    
+    <form action="" method="POST">
         <div class="question-status">
             <span>1/10</span>
             <span>You have 0/10 correct</span>
-        </div>
-        <div class="choices">
-            <form method="POST">
-                <div>
-                    <input type="radio" id="question1"
-                    name="question" value="remove">
-                    <label for="questionChoice1">a) .remove( )</label><br><br>
-                
-                    <input type="radio" id="question2"
-                    name="question" value="reduce">
-                    <label for="questionChoice2"> b) .reduce( )</label><br><br>
-                
-                    <input type="radio" id="question3"
-                    name="question" value="flat">
-                    <label for="questionChoice3">c) .flat( )</label><br><br>
 
-                    <input type="radio" id="question3"
-                    name="question" value="pop">
-                    <label for="questionChoice3">d) .pop( )</label><br><br>
-                </div>          
-            </form>
-        </div>
-        <div class="submit-btn">
-            <a href="#" class="submit">Submit</a>
-        </div>
-    <!-- ${footer} -->
+        ${answers.map(answer => `
+            <label for="">
+                <input name="answer" type="radio" autofocus value="${answer}">${answer}
+            </label>
+        `).join('')}
+        
+        <button type="submit">Submit</button>
+
+    </form>
+        
+
 </body>
 </html>  
-
-
-<!-- Might need this form later-->
-
-<!-- <input type="radio" id="" name="" value="">
-<label for=""> a) .remove( )</label><br><br><br>
-<input type="radio" id="" name="" value="">
-<label for=""> b) .reduce( )</label><br><br><br>
-<input type="radio" id="" name="" value="">
-<label for=""> c) .flat( )</label><br><br><br>
-<input type="radio" id="" name="" value="">
-<label for=""> d) .pop( )</label><br><br><br> -->

@@ -18,7 +18,7 @@ const createNewUser = async (req, res) => {
     console.log(first, last, username, email, hash);
 
     try {
-        const newUser = await Users.create({
+        await Users.create({
             First: first,
             Last: last,
             Username: username,

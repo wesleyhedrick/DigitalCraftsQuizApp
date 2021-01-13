@@ -2,33 +2,49 @@ const {Questions} = require('../models')
 const {shuffle, createArrayOfAnswers, layout} = require('../utils')
 
 const quizSettings = async (req, res) => {
-    const questionIds = await Questions.findAll({
-        attributes: [
-            'id'
-        ], 
-    })
-
-    req.session.questionIds = [];
-    req.session.quizLength = questionIds.length;      
-    req.session.incorrectAnswers = []
-    req.session.score = 0;
-    req.session.questionNum = 1;
-
-    questionIds
-        .forEach(item => req.session.questionIds.push(item.dataValues.id));
+    res.render('quiz-settings', {
+        locals: {
+            categories: [
+                {id: 1, category_title: 'Command Line'},
+                {id: 2, category_title: 'CSS'},
+                {id: 3, category_title: 'Databases'},
+                {id: 4, category_title: 'DOM Manipulation'},
+                {id: 5, category_title: 'Express'},
+                {id: 6, category_title: 'HTML'},
+                {id: 7, category_title: 'JavaScript'},
+                {id: 8, category_title: 'Node'},
+                {id: 9, category_title: 'Python'},
+                {id: 10, category_title: 'React'},
+                {id: 11, category_title: 'Redux'},
+                {id: 12, category_title: 'Other'},
+                {id: 13, category_title: 'All the things'}
+            ], 
+            types: [
+                {id: 2, type: 'Multiple Choice'},
+                {id: 1, type: 'Flash Cards'},
+                {id: 3, type: 'True/False'},
+            ]
+        }
     
-    req.session.questionIds = shuffle(req.session.questionIds);
-    res.redirect('quiz/question')
+    })
+    
 }
+
+const quizStart = (req, res) => {
+    res.render('quiz-start');
+}
+
+
 
 const quizQuestion = async (req, res) => {
     const last = req.session.questionIds.length - 1;    
+    console.log('Question Ids length', last);
     questionObject = await Questions.findOne({
         where: {
             id: req.session.questionIds[last]
         }
     });
-
+    
     req.session.thisQuestionId = req.session.questionIds.pop();
     req.session.questionObject = questionObject;
     let answers = createArrayOfAnswers(questionObject);
@@ -36,9 +52,8 @@ const quizQuestion = async (req, res) => {
     req.session.correctAnswer = questionObject.Correct_Answer;
     let questionNum = req.session.questionNum;
     let score = req.session.score;
-
-    res.json(answers)
-    return
+    
+    
     res.render('main-quiz', {
         locals: {
             question, 
@@ -52,12 +67,13 @@ const quizQuestion = async (req, res) => {
 }
 
 const questionFeedback = async (req, res) => {
+
     const playerAnswer = req.body.answer;
     const correctAnswer = req.session.correctAnswer;
     let next;
     let ruling;
     let wrongAnswer;
-
+    
     //INCREMENT QUESTION NUM
     req.session.questionNum += 1;
     questionObject = req.session.questionObject
@@ -68,34 +84,42 @@ const questionFeedback = async (req, res) => {
     
     //EVALUATE ANSWER. ADJUST SCORE. SELECT THE APPROPRIATE PARTIALS FILE
     if(playerAnswer === correctAnswer){
-        console.log('That was correct answer')
         req.session.score +=1
-        ruling = '/partials/correct'
+        ruling = 'Correct!'
     } else {
-        console.log('That was incorrect answer')
+        
+        for (k in questionObject) {
+            if(questionObject[k]===playerAnswer){
+                wrongAnswer = k;
+            }
         missedQuestionId = req.session.thisQuestionId;
         req.session.incorrectAnswers.push({missedQuestionId, wrongAnswer});
-        ruling = '/partials/incorrect'
+        ruling = 'Incorrect :('
+        }
+
     }
 
     //DECIDE IF ITS THE LAST QUESTION. AND RENDER THE APPROPRIATE PAGE
     //IF LAST, NEXT = GO-TO-END
     if(req.session.questionIds.length === 0){
-        next = '/partials/go-to-end';
+        next = 'partials/go-to-end';
+        saveAndQuit = 'partials/nothing'
     } else {
-        next = '/partials/next-question'
+        next = 'partials/next-question';
+        saveAndQuit = 'partials/save-and-quit';
     }
-    res.json({playerAnswer,correctAnswer})
-    return
+    
     //RENDER QUESTION FEEDBACK PAGE
     res.render('question-feedback', {
         locals: {
             playerAnswer,
-            correctAnswer
+            correctAnswer, 
+            ruling
         },
         partials: {
-            ruling,
-            next, 
+            next,
+            saveAndQuit
+
         }
     });
 }
@@ -105,6 +129,7 @@ const quizFeedback = (req, res) => {res.render('quiz-feedback')}
 module.exports = {
     quizSettings,
     quizQuestion,
+    quizStart,
     questionFeedback,
     quizFeedback
 }

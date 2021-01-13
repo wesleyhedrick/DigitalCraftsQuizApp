@@ -26,8 +26,8 @@ const saveProgress = async (req, res) => {
 
 
     //render the page that says progress saved
-    // res.render('progress-saved')
-    res.send('Your progress is saved.')
+    res.render('progress-saved')
+    
 };
 
 module.exports = {
