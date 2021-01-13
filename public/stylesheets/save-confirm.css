@@ -8,6 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     min-height: 100vh;
     background-color: #EFEBE7 ;
     font-family: 'Poppins', sans-serif;
@@ -20,7 +21,7 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 25px #dad5cf74;  
-    width: 600px;
+    width: 450px;
     height: 400px;
     border-radius: 10px;
     background: #F6F4F2;

@@ -60,4 +60,25 @@ p {
 	top:1px;
 }
 
+/* media query */
 
+@media only screen and (max-width: 40rem) {
+    img {
+        width: 150px;        
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .menu a {
+        display: block;
+        margin: 0;
+    }
+
+    p{
+        font-size: .9rem;
+    }
+
+    .hero-btn{
+        padding: 7px 15px;
+    }
+}
