@@ -9,22 +9,24 @@
 </head>
 <body>
     <nav role="navigation">
-        <ul>
-          <li><a href="#">Select A Language</a>
-            <ul class="dropdown">
-                <li><a href="#">Command Line</a></li>
-                <li><a href="#">Python</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">Javascript</a></li>
-                <li><a href="#">Node.js</a></li>
-                <li><a href="#">Express.js</a></li>
-                <li><a href="#">Sequelize</a></li>
-                <li><a href="#">React.js</a></li>
-                <li><a href="#">Redux</a></li>
-            </ul>
-          </li>
-        </ul>
+        <form action="" method="POST">
+            <select name="" id="">
+                ${Array.from({length: 40}, (_,i) => i+1).map(item => 
+                    `<option value="${item}">${item}</option>`
+                ).join('')}
+            </select>
+            <select name="category" id="category">
+                ${categories.map(item => 
+                    `<option value="${item.id}">${item.category_title}</option>`
+                ).join('')}
+            </select>            
+            <select name="type" id="">
+                ${types.map(item => 
+                    `<option value="${item.id}">${item.type}</option>`
+                    ).join('')}
+            </select>
+            <input type="submit" value="Make my quiz!">
+        </form>
       </nav>
     
 </body>
