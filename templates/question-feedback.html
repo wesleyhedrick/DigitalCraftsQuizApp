@@ -8,28 +8,26 @@
     <title>Question</title>
 </head>
 <body>
-    <!-- ${header} --> 
+    ${header}
+    
     <div class="question-container">
         <div class="question-fb">
-            <h1>(questionFeedback);</h1>
+            <h1>${ruling}</h1>
         </div>
+    
         <span>You Picked:</span>
         <div class="user-answer">
-            <p>a) .remove()</p>
+            <p>${playerAnswer}</p>
         </div>
         <span class="correct">Correct Answer:</span>
         <div class="correct-answer">
-            <p>a) .remove()</p>
+            <p>${correctAnswer}</p>
         </div>
+
         <div class="cta">
-            <div class="next-btn">
-                <input class="next"type="button" value="Next">
-            </div>
-             <div class="save-btn">
-                <input class="save"type="button" value="Save & Quit">
-            </div>
+            ${next}
+            ${saveAndQuit}
+
         </div>
-    </div>
-    <!-- ${foooter} -->    
 </body>
 </html>
