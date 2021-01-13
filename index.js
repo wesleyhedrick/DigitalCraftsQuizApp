@@ -1,5 +1,5 @@
 
-// require('dotenv').config();
+require('dotenv').config();
 const http = require('http');
 const express = require('express');
 const helmet = require('helmet');
@@ -11,7 +11,6 @@ const FileStore = require('session-file-store')(session);
 const app = express();
 const logger = morgan('dev');
 const hostname = '127.0.0.1';
-
 
 const {
     heroRouter,
@@ -59,28 +58,11 @@ app.use('/leaderboard', leaderboardRouter);
 app.use('/confirmation', confirmationRouter);
 app.use('/save-progress', saveProgressRouter);
 
-
-
-
-app.get('/leaderboard', async (req, res) => {
-   
-    db.collection('score', 'User_Id' )
-        .find()
-        .sort({ score: -1 })
-        .toArray(function(err, result) {
-            if (err)
-                res.send({ status: false, msg: 'failed to retrieve players' });
-            console.log(Array.from(result));
-            res.send({ status: true, msg: result });
-        });
- });
-
-
 //Error Handling for Bad Routes
 app.get('*', (req, res) => {
     res.status(404).send('<h1>Page not found</h1>');
 });
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 server.listen(PORT, hostname, () => {
     console.log(`Server running at localhost, port ${PORT}`);
