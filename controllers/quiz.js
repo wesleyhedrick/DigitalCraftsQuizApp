@@ -52,6 +52,7 @@ const quizQuestion = async (req, res) => {
     req.session.correctAnswer = questionObject.Correct_Answer;
     let questionNum = req.session.questionNum;
     let score = req.session.score;
+    let quizLength = req.session.quizLength
     
     
     res.render('main-quiz', {
@@ -59,7 +60,8 @@ const quizQuestion = async (req, res) => {
             question, 
             answers, 
             questionNum, 
-            score
+            score,
+            quizLength
         }, 
         ...layout
     })

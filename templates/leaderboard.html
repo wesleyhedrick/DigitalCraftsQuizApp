@@ -8,29 +8,40 @@
     <title>Leader-Board</title>
 </head>
 <body>
-    <!-- ${header} -->
+    ${header}
     <div class="header-title">
-        <h1>(leaderBoard);</h1>
+        <h1>Leaderboard</h1>
         <div class="card">
-        <div class="user-names">
-            <span>Usernames</span>
-            <ul>
-                <li>${userName}</li>
-            </ul>
-        </div>
-        <div class="score">
-            <span>User Score</span>
-            <ul>
-                <li>{$userScore}</li>
-            </ul>
-        </div>
-        <div class="badges">
-            <span>Badge</span>
-        </div>
-        </div>
+            <table>
+                <tr>
+                    <th>
+                        Usernames
+                    </th>
+                    <th>
+                        Scores
+                    </th>
+                    <th>
+                        Badges
+                    </th>
+                </tr>
+                ${leaderboard.map(data =>
+                    `<tr>
+                        <td>
+                            ${data.dataValues.User_Id}
+                        </td>
+                        <td>
+                            ${data.dataValues.Score}
+                        </td>
+                        <td>
+                            ${data.dataValues.Badge_Id}
+                        </td>
+                    </tr>`
+                    )
+                }
+            </table>
     </div>
 
-    <!-- ${footer} -->
+    ${footer}
 </body>
 </html>
 
