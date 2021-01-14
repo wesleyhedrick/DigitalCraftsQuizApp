@@ -8,9 +8,12 @@
     <title>dcQuiz | Quiz Settings</title>
 </head>
 <body>
-    <nav role="navigation">
+    <!-- 
+        Maybe a title here?
+        <p>Customize you quiz!</p> -->
+    <nav role="navigation"> 
         <form action="" method="POST">
-            <select name="" id="">
+            <select name="length" id="">
                 ${Array.from({length: 40}, (_,i) => i+1).map(item => 
                     `<option value="${item}">${item}</option>`
                 ).join('')}
@@ -25,7 +28,9 @@
                     `<option value="${item.id}">${item.type}</option>`
                     ).join('')}
             </select>
+            <div class="btn-container">
             <input type="submit" value="Make my quiz!">
+            </div>
         </form>
       </nav>
     

@@ -7,77 +7,65 @@
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
-    /* min-height: 100vh; */
+    align-content: center;
     background-color: #EFEBE7 ;
     font-family: 'Poppins', sans-serif;
 
 }
-
-a {
-    text-decoration: none;
-  }
   
   nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Poppins', sans-serif;
-    background-color:#f04c1e;
-	  border-radius:6px;
+    background-color:#F6F4F2;
+    width: 600px;
+    height: 500px;
+    border-radius:6px;
+    margin: 100px 0 0 0;
   }
-  
-  ul {
-    border-radius: 3px;
-    background: #F04C1E;
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-  }
-  
-  li {
-    color: #fff;
-    background: #E05D38;
-    display: block;
-    float: left;
-    padding: 1rem;
-    position: relative;
-    text-decoration: none;
-    transition-duration: 0.5s;
-  }
-    
-  li a {
-    color: #fff;
-  }
-  
-  li:hover {
-    background: red;
-    cursor: pointer;
-  }
-  
-  ul li ul {
-    background: orange;
-    visibility: hidden;
-    opacity: 0;
-    min-width: 5rem;
-    position: absolute;
-    transition: all 0.5s ease;
-    margin-top: 1rem;
-    left: 0;
-    display: none;
-  }
-  
-  ul li:hover > ul,
-  ul li:focus-within > ul, /* this is the line we add */
-  ul li ul:hover {
-    visibility: visible;
-    opacity: 1;
-    display: block;
-  }
-  
-  ul li ul li {
-    clear: both;
-    width: 100%;
-  }
-  
-  
+
+ select {
+   border: none;
+   font-family: 'Poppins', sans-serif;
+ }
+ 
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ input[type=submit] {
+	border-radius:6px;
+	border: none;
+  display:inline-block;
+  font-family: 'Poppins', sans-serif;
+	cursor:pointer;
+	color:#fff;
+	font-weight:500;
+	padding:8px 25px;
+    text-decoration:none;
+    margin: 3rem 0 0 0 ;
+}
+
+input[type=submit] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+	background:#F04C1E;
+}
+
+.submit:hover {
+	background-color:#eee;
+}
+
+.input:active {
+	position:relative;
+	top:1px;
+}
+
+
   
   
   
