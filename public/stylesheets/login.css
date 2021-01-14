@@ -49,6 +49,7 @@ p {
 
 input[class=login] {
 	background: #f04c1e;
+	border-radius: 5px;
 	color:#ffffff;
 	font-weight:500;
 	padding:8px 25px;
