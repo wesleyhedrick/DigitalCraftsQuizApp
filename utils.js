@@ -53,7 +53,7 @@ function setUpSession(length, questionIds, req){
     req.session.questionNum = 1;
 }
 
-function missedQandA(req, missedQandAFromDB){
+function getMissedQandA(req, missedQandAFromDB){
     let newObject = {};
     let missed_Questions_And_Answers_For_Template = [];
 
@@ -71,5 +71,5 @@ module.exports = {
     shuffle,
     createArrayOfAnswers,
     setUpSession, 
-    missedQandA
+    getMissedQandA
 };

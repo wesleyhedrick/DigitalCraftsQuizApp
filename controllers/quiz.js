@@ -3,7 +3,7 @@ const {shuffle,
     createArrayOfAnswers, 
     layout, 
     setUpSession, 
-    missedQandA} = require('../utils')
+    getMissedQandA} = require('../utils')
 
 const quizSettings = async (req, res) => {
     
@@ -161,10 +161,10 @@ const questionFeedback = async (req, res) => {
 }
 
 const quizFeedback = async (req, res) => {
-    //Get data from session and store it in usable variables for locals object
     //Loop through req.session.incorrectAnswers and make a new array of just the ids
     const missedQuestionIdsFromSession = req.session.incorrectAnswers.map(item => item.missedQuestionId);
     // const score = Math.round(req.session.score/req.session.quizLength);
+    //Get data from session and store it in usable variables for locals object
     const score = Math.round((req.session.score/req.session.quizLength)*100);
 
     //Query DB based on the items in the incorrectAnswers object in sessions
@@ -174,9 +174,10 @@ const quizFeedback = async (req, res) => {
         }
     })
 
-    //Prepare array of objects comprising
-    const mQAforTemplate = missedQandA(req, missedQandAFromDB);
-    const labelsForQandA = ['Question', 'Answer', 'You picked']
+    //Prepare array of objects comprising missed questions, their answers, and the 
+    //player selection
+    const mQAforTemplate = getMissedQandA(req, missedQandAFromDB);
+    const missedQandALabels = ['Question', 'Answer', 'You picked']
     // res.json(missed_Questions_And_Answers_For_Template);
     // return
 
@@ -184,7 +185,7 @@ const quizFeedback = async (req, res) => {
     {
         locals: {
             mQAforTemplate,
-            labelsForQandA,
+            missedQandALabels,
             score, 
             
         }
