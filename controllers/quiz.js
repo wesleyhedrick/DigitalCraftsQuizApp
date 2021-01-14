@@ -80,6 +80,7 @@ const quizQuestion = async (req, res) => {
     req.session.correctAnswer = questionObject.Correct_Answer;
     let questionNum = req.session.questionNum;
     let score = req.session.score;
+    let quizLength = req.session.quizLength
     
     // res.json(questionObject);
     // return
@@ -88,9 +89,9 @@ const quizQuestion = async (req, res) => {
         locals: {
             question, 
             answers, 
-            questionNum, 
-            score, 
-            length
+            questionNum,
+            score,
+            quizLength
         }, 
         ...layout
     })

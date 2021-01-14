@@ -17,7 +17,8 @@ body {
 	margin: 230px 0 0 0;
 	display: flex;
 	justify-content: center;
-	width: 450px;
+	flex-direction: column;
+	width: 250px;
 }
 
 .form input {
@@ -30,42 +31,29 @@ body {
 	background: #f7f7f7;
 }
 
-p {
-	color: #f04c1e;
-	font-weight: 400;
-	font-size: 1.2em;
-	margin: 15px 0 0 0;
-}
-
 label {
 	color: #f04c1e;
 	font-weight: 400;
 	font-size: 1.2em;
 }
 
-/* Links & Buttons */
-
-.cta {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+p {
+	text-align: center;
+	color: #f04c1e;
+	font-weight: 400;
+	font-size: 1.2em;
+	margin: 45px 0 0 0;
 }
 
-input[type=button] {
-	background-color:#f04c1e;
-	border-radius:6px;
-	border: none;
-	display:inline-block;
-	cursor:pointer;
+/* Links & Buttons */
+
+input[class=login] {
+	background: #f04c1e;
 	color:#ffffff;
 	font-weight:500;
 	padding:8px 25px;
-    text-decoration:none;
-    margin: 3rem 0 0 0 ;
-}
-
-input[type=submit] {
-	background: none;
+	text-decoration:none;
+	margin: 35px 0 0 0;
 }
 
 .login:hover {
@@ -77,15 +65,10 @@ input[type=submit] {
 	top:1px;
 }
 
-.no-account {
-	margin: 25px 0 0 0;
-}
-
-.signup {
-	text-align: center;
-	text-decoration: none;
-	font-weight: 500;
+input[class=signup] {
+	background: none;
 	color: #386B8B;
+	font-weight: 500;
 	margin: 20px 0 0 0;
 }
 
