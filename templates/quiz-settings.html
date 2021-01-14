@@ -8,27 +8,25 @@
     <title>dcQuiz | Quiz Settings</title>
 </head>
 <body>
-    <nav role="navigation">
-        <form action="" method="POST">
-            <select name="" id="">
-                ${Array.from({length: 40}, (_,i) => i+1).map(item => 
-                    `<option value="${item}">${item}</option>`
+    <form action="" method="POST">
+        <select name="length" id="">
+            ${Array.from({length: 40}, (_,i) => i+1).map(item => 
+                `<option value="${item}">${item}</option>`
+            ).join('')}
+        </select>
+        <select name="category" id="category">
+            ${categories.map(item => 
+                `<option value="${item.id}">${item.category_title}</option>`
+            ).join('')}
+        </select>            
+        <select name="type" id="">
+            ${types.map(item => 
+                `<option value="${item.id}">${item.Type}</option>`
                 ).join('')}
-            </select>
-            <select name="category" id="category">
-                ${categories.map(item => 
-                    `<option value="${item.id}">${item.category_title}</option>`
-                ).join('')}
-            </select>            
-            <select name="type" id="">
-                ${types.map(item => 
-                    `<option value="${item.id}">${item.type}</option>`
-                    ).join('')}
-            </select>
-            <input type="submit" value="Make my quiz!">
-        </form>
-      </nav>
-    
+        </select>
+        <input type="submit" value="Make my quiz!">
+    </form>
+   
 </body>
 </html>
 

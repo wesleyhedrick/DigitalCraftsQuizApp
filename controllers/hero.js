@@ -1,3 +1,7 @@
-const hero = (req, res) => res.render('hero')
+const hero = (req, res) => {
+    req.session.destroy();
+    res.render('hero')
+
+}
 
 module.exports = {hero}

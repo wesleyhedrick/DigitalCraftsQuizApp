@@ -42,6 +42,7 @@ app.use(session({
     }
 }));
 
+
 app.engine('html', es6Renderer);
 app.set('views', 'templates');
 app.set('view engine', 'html');

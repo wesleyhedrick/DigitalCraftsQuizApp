@@ -1,51 +1,79 @@
-const {Questions} = require('../models')
-const {shuffle, createArrayOfAnswers, layout} = require('../utils')
+const {Questions, Category, Question_Types} = require('../models')
+const {shuffle, 
+    createArrayOfAnswers, 
+    layout, 
+    setUpSession, 
+    missedQandA} = require('../utils')
 
 const quizSettings = async (req, res) => {
+    
+    const categoryObjectDB = await Category.findAll({
+        attributes: ['id', 'category_title']
+    })
+
+    const typesObjectDB = await Question_Types.findAll({
+        attributes: ['id','Type']
+    })
+
+    const categories = categoryObjectDB.map(item => item.dataValues)
+    const types = typesObjectDB.map(item => item.dataValues)
+    categories.push({id:13, category_title: 'All the things'});
+
+    console.log(categories)
+    console.log(types);
+    // res.json(categoryObjectDB)
+    // return
+
     res.render('quiz-settings', {
         locals: {
-            categories: [
-                {id: 1, category_title: 'Command Line'},
-                {id: 2, category_title: 'CSS'},
-                {id: 3, category_title: 'Databases'},
-                {id: 4, category_title: 'DOM Manipulation'},
-                {id: 5, category_title: 'Express'},
-                {id: 6, category_title: 'HTML'},
-                {id: 7, category_title: 'JavaScript'},
-                {id: 8, category_title: 'Node'},
-                {id: 9, category_title: 'Python'},
-                {id: 10, category_title: 'React'},
-                {id: 11, category_title: 'Redux'},
-                {id: 12, category_title: 'Other'},
-                {id: 13, category_title: 'All the things'}
-            ], 
-            types: [
-                {id: 2, type: 'Multiple Choice'},
-                {id: 1, type: 'Flash Cards'},
-                {id: 3, type: 'True/False'},
-            ]
+            categories, 
+            types
         }
-    
     })
-    
 }
 
-const quizStart = (req, res) => {
+const quizStart = async (req, res) => {
+    //Get form data from req.body
+    const length = req.body.length; 
+    const category = parseInt(req.body.category);
+    const type = parseInt(req.body.type);
+    console.log(typeof category)
+    // Query the database for these quizzes
+    
+    let questionIds = await Questions.findAll({
+        attributes: ['id']
+        // where: {
+        //     [Op.and]: [
+        //            {Category_ID: category}, 
+        //            {Question_Type_Id: type}
+        //        ]
+        // }
+    });
+
+    //Shuffle the array of Question Ids and then choose ${length} items
+    questionIds = shuffle(questionIds)
+                    .splice(0, length);
+    
+    //Set up the session
+    setUpSession(length, questionIds,req);
+    
     res.render('quiz-start');
 }
 
 
 
 const quizQuestion = async (req, res) => {
-    const last = req.session.questionIds.length - 1;    
-    console.log('Question Ids length', last);
+    let length = req.session.questionIds.length;
+    console.log('Question Ids length', length);
+    
     questionObject = await Questions.findOne({
         where: {
-            id: req.session.questionIds[last]
+            id: req.session.questionIds.pop()
         }
     });
     
-    req.session.thisQuestionId = req.session.questionIds.pop();
+    console.log('this many questions to go', questionObject.length);
+    req.session.thisQuestionId = questionObject.id
     req.session.questionObject = questionObject;
     let answers = createArrayOfAnswers(questionObject);
     let question = questionObject.Question;
@@ -53,13 +81,16 @@ const quizQuestion = async (req, res) => {
     let questionNum = req.session.questionNum;
     let score = req.session.score;
     
+    // res.json(questionObject);
+    // return
     
     res.render('main-quiz', {
         locals: {
             question, 
             answers, 
             questionNum, 
-            score
+            score, 
+            length
         }, 
         ...layout
     })
@@ -67,12 +98,14 @@ const quizQuestion = async (req, res) => {
 }
 
 const questionFeedback = async (req, res) => {
-
+    // res.send("You answered a question");
+    // return
     const playerAnswer = req.body.answer;
     const correctAnswer = req.session.correctAnswer;
     let next;
     let ruling;
     let wrongAnswer;
+    let questionsRemaining = req.session.questionIds.length;
     
     //INCREMENT QUESTION NUM
     req.session.questionNum += 1;
@@ -92,16 +125,18 @@ const questionFeedback = async (req, res) => {
             if(questionObject[k]===playerAnswer){
                 wrongAnswer = k;
             }
+        }
+
         missedQuestionId = req.session.thisQuestionId;
         req.session.incorrectAnswers.push({missedQuestionId, wrongAnswer});
         ruling = 'Incorrect :('
-        }
 
     }
 
     //DECIDE IF ITS THE LAST QUESTION. AND RENDER THE APPROPRIATE PAGE
     //IF LAST, NEXT = GO-TO-END
-    if(req.session.questionIds.length === 0){
+    console.log('quiz length', req.session.length)
+    if(questionsRemaining === 0){
         next = 'partials/go-to-end';
         saveAndQuit = 'partials/nothing'
     } else {
@@ -124,7 +159,37 @@ const questionFeedback = async (req, res) => {
     });
 }
 
-const quizFeedback = (req, res) => {res.render('quiz-feedback')}
+const quizFeedback = async (req, res) => {
+    //Get data from session and store it in usable variables for locals object
+    //Loop through req.session.incorrectAnswers and make a new array of just the ids
+    const missedQuestionIdsFromSession = req.session.incorrectAnswers.map(item => item.missedQuestionId);
+    // const score = Math.round(req.session.score/req.session.quizLength);
+    const score = Math.round((req.session.score/req.session.quizLength)*100);
+
+    //Query DB based on the items in the incorrectAnswers object in sessions
+    const missedQandAFromDB = await Questions.findAll({
+        where: {
+            id: missedQuestionIdsFromSession
+        }
+    })
+
+    //Prepare array of objects comprising
+    const mQAforTemplate = missedQandA(req, missedQandAFromDB);
+    const labelsForQandA = ['Question', 'Answer', 'You picked']
+    // res.json(missed_Questions_And_Answers_For_Template);
+    // return
+
+    res.render('quiz-feedback',
+    {
+        locals: {
+            mQAforTemplate,
+            labelsForQandA,
+            score, 
+            
+        }
+    }
+    )
+}
 
 module.exports = {
     quizSettings,
