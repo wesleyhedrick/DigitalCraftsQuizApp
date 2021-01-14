@@ -25,13 +25,13 @@
         <ul>
             ${mQAforTemplate.map((item, idx) => 
                 `<ul>
-                    <li>${labelsForQandA[idx]}<br>
+                    <li>${missedQandALabels[0]}<br>
                         ${item.question}
                     </li>
-                    <li>${labelsForQandA[idx+1]}<br>
+                    <li>${missedQandALabels[1]}<br>
                         ${item.answer}
                     </li>
-                    <li>${labelsForQandA[idx+2]}<br>
+                    <li>${missedQandALabels[2]}<br>
                         ${item.playerSelection}
                     </li>
                 </ul>`
