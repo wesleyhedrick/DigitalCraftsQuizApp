@@ -55,6 +55,7 @@ form {
     display: flex;
     align-items: center;
     margin: 30px 30px;
+    background: #F6F4F2;
 }
 
 input[type="radio"] {

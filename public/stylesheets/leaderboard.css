@@ -46,3 +46,38 @@ span {
     margin: 30px;
 }
 
+
+
+/* Header CSS */
+
+a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #386B8B;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 60px;
+}
+
+.logo img {
+    display: flex;
+    width: 85px;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex; 
+}
+
+.menu ul li {
+  margin: 30px;
+}

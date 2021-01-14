@@ -8,27 +8,44 @@
     <title>dcQuiz | Quiz Settings</title>
 </head>
 <body>
+    <div class="customize">
     <p>Customize you quiz!</p>
+    </div>
+    
     <nav role="navigation"> 
         <form action="" method="POST">
+        <div class="length">
+            <span>Number of Questions</span>
             <select name="length" id="">
                 ${Array.from({length: 40}, (_,i) => i+1).map(item => 
                     `<option value="${item}">${item}</option>`
                 ).join('')}
             </select>
+        </div>
+
+        <div class="category">
+            <span>Category</span>
             <select name="category" id="category">
                 ${categories.map(item => 
                     `<option value="${item.id}">${item.category_title}</option>`
                 ).join('')}
-            </select>            
+            </select>       
+        </div>
+
+        <div class="type">
+            <span>Type</span>     
             <select name="type" id="">
                 ${types.map(item => 
                     `<option value="${item.id}">${item.type}</option>`
                     ).join('')}
             </select>
+        </div>
+
+
             <div class="btn-container">
             <input type="submit" value="Make my quiz!">
             </div>
+
         </form>
       </nav>
 </body>
