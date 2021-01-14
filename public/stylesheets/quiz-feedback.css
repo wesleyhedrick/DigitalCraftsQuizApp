@@ -1,24 +1,23 @@
 * {
-    padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #EFEBE7 ;
     font-family: 'Poppins', sans-serif;
-    
 }
 
 .title {
     display: flex;
     justify-content: center;
     color: #F04C1E;
-    margin: 100px;
+    margin: 3em;
 }
 
 .container {
@@ -57,15 +56,19 @@ h3 {
 
 .missed {
     box-shadow: 0 0 25px #dad5cf74;   
-    width: 820px;
-    height: 300px;
     border-radius: 5px;
     background: #F6F4F2;
     color: #F04C1E;
-    margin: 15px 0 0 0 ;
+    padding: 1em;
     
 }
 
+p:first-child {
+    font-style: italic;
+}
+p:nth-child(2){
+    font-weight: bold;
+}
 /* Header */
 
 a {
@@ -102,6 +105,9 @@ a {
   margin: 30px;
 }
 
+.mQA {
+    list-style: none;
+}
 
 /* Responsive */
 

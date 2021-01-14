@@ -16,8 +16,10 @@
 
     <form action="" method="POST">
         <div class="question-status">
-            <span>${questionNum}/${quizLength}</span>
-            <span>You have ${score}/${quizLength} correct</span>
+            <div class="quiz-progress">
+                <span>Question ${questionNum} of ${quizLength}</span>
+                <span>Score ${score}/${quizLength}</span>
+            </div>
 
         ${answers.map(answer => `
             <label for="">
