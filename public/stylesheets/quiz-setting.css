@@ -30,20 +30,22 @@ span {
   
 form {
   display: flex;
+  flex-direction: column;
+  padding: 5em 0;
 }
 
 nav {
   display: flex;
-  align-items: center;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
   background-color:#F6F4F2;
-  width: 800px;
-  height: 500px;
   border-radius:6px;
-  margin: 100px 0 0 0;
+
 }
 
+.selection-container {
+    display: flex;
+}
 .length {
   color: #F04C1E;
   font-weight: 500;
@@ -114,28 +116,29 @@ a {
 .header-container {
     display: flex;
     justify-content: space-between;
-    margin: 60px;
+    align-items: center;
+    padding: 1em;
 }
 
 .logo img {
-    display: flex;
-    width: 85px;
+    width: 5em;
 }
 
 .menu {
-    display: flex;
-    justify-content: flex-end;
+    list-style: none;
+    width: 10em;
 }
 
 .menu ul {
     list-style: none;
     display: flex; 
+    display: flex;
+    justify-content: space-between;
 }
 
-.menu ul li {
-  margin: 30px;
+.customize {
+    margin-top: 5em;
 }
-
   
   
   

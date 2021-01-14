@@ -22,21 +22,24 @@
     </div>
         <div class="missed">
         <h3>Questions you missed</h3>
-        <ul>
+        <div>
             ${mQAforTemplate.map((item, idx) => 
-                `<ul>
-                    <li>${missedQandALabels[0]}<br>
-                        ${item.question}
+                `<ul class="mQA">
+                    <li>
+                        <p>${missedQandALabels[0]}</p>
+                        <p>${item.question}</p>
                     </li>
-                    <li>${missedQandALabels[1]}<br>
-                        ${item.answer}
+                    <li>
+                        <p>${missedQandALabels[1]}</p>
+                        <p>${item.answer}</p>
                     </li>
-                    <li>${missedQandALabels[2]}<br>
-                        ${item.playerSelection}
+                    <li>
+                        <p>${missedQandALabels[2]}</p>
+                        <p>${item.playerSelection}</p>
                     </li>
                 </ul>`
             ).join('')}
-        </ul>
+        </div>
         </div>    
 </body>
 </html> 
