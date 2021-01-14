@@ -30,7 +30,6 @@ const loginVerify = async (req, res) => {
     } else {
         res.redirect('sign-up');
     }
-    
 
 
 

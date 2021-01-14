@@ -1,9 +1,12 @@
-const {Questions, Category, Question_Types} = require('../models')
-const {shuffle, 
+const {Users, Questions, Category, Question_Types, Leaderboard} = require('../models')
+const {
+    shuffle, 
     createArrayOfAnswers, 
     layout, 
     setUpSession, 
-    getMissedQandA} = require('../utils')
+    getMissedQandA,
+    updateLeaderboard
+} = require('../utils')
 
 const quizSettings = async (req, res) => {
     
@@ -28,6 +31,9 @@ const quizSettings = async (req, res) => {
         locals: {
             categories, 
             types
+        }, 
+        partials: {
+            header: '/partials/header'
         }
     })
 }
@@ -163,7 +169,7 @@ const questionFeedback = async (req, res) => {
 const quizFeedback = async (req, res) => {
     //Loop through req.session.incorrectAnswers and make a new array of just the ids
     const missedQuestionIdsFromSession = req.session.incorrectAnswers.map(item => item.missedQuestionId);
-    // const score = Math.round(req.session.score/req.session.quizLength);
+    
     //Get data from session and store it in usable variables for locals object
     const score = Math.round((req.session.score/req.session.quizLength)*100);
 
@@ -173,6 +179,10 @@ const quizFeedback = async (req, res) => {
             id: missedQuestionIdsFromSession
         }
     })
+
+    //Update Leaderboard, adding player's score to leaderboard score or creating leaderboard
+    //record if one does not exist.    
+    updateLeaderboard(req, Users, Leaderboard);
 
     //Prepare array of objects comprising missed questions, their answers, and the 
     //player selection

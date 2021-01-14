@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     Score: DataTypes.INTEGER,
     Missed_Question_Id: DataTypes.INTEGER,
     Player_Selection: DataTypes.STRING,
-    Correct_Answer: DataTypes.STRING
+    Remaining_Question_Ids: DataTypes.STRING,
+    User_Id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Progress',

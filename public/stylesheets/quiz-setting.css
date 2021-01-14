@@ -4,34 +4,70 @@
     box-sizing: border-box;
 }
 
+
 body {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    background-color: #EFEBE7 ;
-    font-family: 'Poppins', sans-serif;
+  
+  background-color: #EFEBE7 ;
+  font-family: 'Poppins', sans-serif;
 
 }
+
+p {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: #F04C1E;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 100px 0 0 0 ;
+
+}
+
+span {
+  display: flex;
+  justify-content: space-around;
+}
   
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    background-color:#F6F4F2;
-    width: 600px;
-    height: 500px;
-    border-radius:6px;
-    margin: 100px 0 0 0;
-  }
+form {
+  display: flex;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  background-color:#F6F4F2;
+  width: 800px;
+  height: 500px;
+  border-radius:6px;
+  margin: 100px 0 0 0;
+}
+
+.length {
+  color: #F04C1E;
+  font-weight: 500;
+}
+
+.category {
+  color: #F04C1E;
+  font-weight: 500;
+}
+
+.type {
+  color: #F04C1E;
+  font-weight: 500;
+}
 
  select {
    border: none;
    font-family: 'Poppins', sans-serif;
+   margin: 20px;
  }
  
 .btn-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -39,14 +75,15 @@ body {
  input[type=submit] {
 	border-radius:6px;
 	border: none;
-  display:inline-block;
+  /* display: flex; */
+  /* flex-direction: column; */
   font-family: 'Poppins', sans-serif;
 	cursor:pointer;
 	color:#fff;
 	font-weight:500;
 	padding:8px 25px;
-    text-decoration:none;
-    margin: 3rem 0 0 0 ;
+  text-decoration:none;
+  margin: 3rem 0 0 0 ;
 }
 
 input[type=submit] {
