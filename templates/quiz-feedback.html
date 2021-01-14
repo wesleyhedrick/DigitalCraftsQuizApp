@@ -13,7 +13,8 @@
     </div>
     <div class="container">
         <div class="score">
-            <h2>Final Score</h2>
+            <h2>Score</h2>
+            <h2>${score}%</h2>
         </div>
         <div class="links">
             <h3>Suggested Links</h3>
@@ -21,6 +22,21 @@
     </div>
         <div class="missed">
         <h3>Questions you missed</h3>
+        <ul>
+            ${mQAforTemplate.map((item, idx) => 
+                `<ul>
+                    <li>${labelsForQandA[idx]}<br>
+                        ${item.question}
+                    </li>
+                    <li>${labelsForQandA[idx+1]}<br>
+                        ${item.answer}
+                    </li>
+                    <li>${labelsForQandA[idx+2]}<br>
+                        ${item.playerSelection}
+                    </li>
+                </ul>`
+            ).join('')}
+        </ul>
         </div>    
 </body>
 </html> 
