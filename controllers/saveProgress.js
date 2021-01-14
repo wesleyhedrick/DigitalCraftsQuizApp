@@ -16,15 +16,13 @@ const saveProgress = async (req, res) => {
         missedQuestionsAndAnswers.map(async (item) => {
             return await Progress.create({
                 Score: score,
-                User_id: user_id,
                 Missed_Question_Id: item.missedQuestionId,
                 Player_Selection: item.wrongAnswer,
-                Remaining_Questions: JSON.stringify(questionIds)
+                Remaining_Question_Ids: JSON.stringify(questionIds),
+                User_Id: user_id,
             });
         }));
    
-
-
     //render the page that says progress saved
     res.render('progress-saved')
     
