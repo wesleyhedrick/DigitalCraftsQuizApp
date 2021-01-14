@@ -8,6 +8,7 @@
     <title>dcQuiz | Quiz Settings</title>
 </head>
 <body>
+    ${header}
     <p>Customize you quiz!</p>
     <nav role="navigation"> 
         <form action="" method="POST">
@@ -23,7 +24,7 @@
             </select>            
             <select name="type" id="">
                 ${types.map(item => 
-                    `<option value="${item.id}">${item.type}</option>`
+                    `<option value="${item.id}">${item.Type}</option>`
                     ).join('')}
             </select>
             <div class="btn-container">

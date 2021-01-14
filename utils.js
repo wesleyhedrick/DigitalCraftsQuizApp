@@ -66,10 +66,38 @@ function getMissedQandA(req, missedQandAFromDB){
     }); 
     return missed_Questions_And_Answers_For_Template
 }
+
+async function updateLeaderboard(req, Users, Leaderboard){
+    const currentUser = await Users.findOne({
+        Username: req.session.username
+    })
+    const leaderboardDatafromDB = await Leaderboard.findOne({
+        where: {
+            User_Id: currentUser.id
+        }
+    })
+    const latestScore = leaderboardDatafromDB.Score += req.session.score; 
+    if(leaderboardDatafromDB){
+        await Leaderboard.update({ Score: latestScore}, {
+            where: {
+              User_Id: currentUser.id
+            }
+          });
+    } else {
+        //create a new record
+        await Leaderboard.create({
+            User_Id: currentUser.id,
+            Score: req.session.score, 
+            Badge_Id: 1
+        })
+    }
+}
+
 module.exports = {
     layout, 
     shuffle,
     createArrayOfAnswers,
     setUpSession, 
-    getMissedQandA
+    getMissedQandA,
+    updateLeaderboard
 };
