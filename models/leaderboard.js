@@ -1,8 +1,7 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+"use strict";
+const { Model, DataTypes } = require("sequelize"); // explicitly import datatypes from the module.exports()
+const sequelize = require("../config/sequelize"); // being imported from sequelize.js file
+module.exports = () => {
   class Leaderboard extends Model {
     /**
      * Helper method for defining associations.
@@ -12,14 +11,19 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
-  Leaderboard.init({
-    User_Id: DataTypes.INTEGER,
-    Score: DataTypes.INTEGER,
-    Badge_Id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Leaderboard',
-  });
+  }
+  Leaderboard.init(
+    {
+      // Model attributes are defined here
+      User_Id: DataTypes.INTEGER,
+      Score: DataTypes.INTEGER,
+      Badge_Id: DataTypes.INTEGER,
+    },
+    {
+      // Other model options go here
+      sequelize, // We need to pass the connection instance
+      modelName: "Leaderboard", // We need to choose the model name
+    }
+  );
   return Leaderboard;
 };
