@@ -1,63 +1,76 @@
-# Quiz App
+<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/readme-banner.png" width="800" height="200" alt="Header picture" />
 
-##### Backend Project: Wesley Hedrick, David Vaughan, and Melody Ulep
+# DigitalCrafts Quiz App
 
-## - Project is aim to help students with their DC bootcamp
 
-### User Stories
 
--   As a User I want to have mini quizzes on programming to keep things fresh in my mind.
--   As a User I would like to learn how to learn things in a repetative way, so I will memorize it.
--   As a User, I would like to use this app via mobile and desktop, so I can use it anywhere.
--   As a User, I would like to see my progress, so I can keep track on how well I do or don't.
--   As a User, I would like to be able to learn on a platform, that is easy to use and engaging.
+#### **Backend Project:** [Wesley Hedrick](https://github.com/wesleyhedrick), [David Vaughan](https://github.com/davidvaughan86), and [Melody Ulep](https://github.com/mculep)
 
-### Student Persona | Goals and Needs
+Time Frame: One week
 
--   Learn something
--   See my Score
--   Fix my wrong answers (another chance/view answer?)
--   See my improvement (graphs and title rewards?)
--   See other user scores (competition?)
--   Find more information (external links?)
--   Have fun (maybe a movie quiz?)
 
-# Table
+#### 💻  Visit the website: [digitalcraftsquizzes.com](https://digitalcraftsquizzes.com)
+
+
+
+## What is Digitalcrafts quiz app all about?
+
+
+
+When going through coding boot camp, you will have to memorize many terms and techniques in a short amount of time. The amount of information can be overwhelming, however, my team and I worked together by discussing questions, quizzing one another, and sharing knowledge with one another. This helped us better understand the ins and outs of coding!
+
+My team and I created an App called "DigitalCraftquizzes" to assist students with their knowledge in coding. We found that playing helpful study games and practice quizzes helped us understand coding even better, so we wanted to create an App where users can practice these techniques. By using DigitalCraft quizzes, students will be prepared for future coding projects and interviews!
+
+
+
+## Tools used in this project:
+
+> ##### **Main Tools**
+
+-   [Node.js](https://nodejs.org/en/)
+-   [Express.js](https://expressjs.com)
+-   [Sequelize.js](https://sequelize.org)
+-   [Postgres](https://www.postgresql.org)
+-   [Helmet](https://www.npmjs.com/package/helmet)
+-   [Morgan](https://www.npmjs.com/package/morgan) 
+-   [Express ES6 string template engine](https://www.npmjs.com/package/express-es6-template-engine)
+-   [Express-session](https://www.npmjs.com/package/express-session)
+-   [AWS](https://aws.amazon.com)
+-   [ElephantSQL](https://www.elephantsql.com)
+-   [Javascript](https://www.javascript.com)
+-   [HTML](https://html.com)
+-   [CSS](https://www.w3schools.com/html/)
+
+> #####  **Planning**
+
+* [Miro](https://miro.com/)
+
+* [Figma](https://www.figma.com/)
+
+* [Google Sheets](https://www.google.com/sheets/about/)
+
+  
+
+## User Stories:
+
+- As a User, I want to customize quizzes, so I can learn a specific language.
+- As a User, I would like to use this app via mobile and desktop, so I can use it anywhere.
+- As a User, I would like to see my progress, so I can keep track on how well I did.
+- As a User, I would like to be able to learn on a platform, that is simple to use, so I can quickly navigate through the menu.
+- As a User, I would like a list of question I missed, so I can go back and study them. 
+
+
+
+### Screen shots of the process:
 
 ---
 
--   ## user
+<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/miro.png" width="800" height="200" alt="screenshot miro" />
 
-    -   Display name
-    -   Password/hash
-    -   Score #
 
-    ## score
+<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/google-sheets.png" width="800" height="200" alt="screenshot google sheets" />
 
-    -   Score #
-    -   Overall score #
 
-    ## questions
+<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/figma.png" width="800" height="200" alt="screenshot figma" />
 
-    -   Question #
-    -   (Belongs to) unit #
-    -   User (player name)
 
-    ## answers
-
-    -   (Belongs to question)
-    -   Boolean (?)
-
-    ## references
-
-    -   (Belongs to) lesson
-    -   External link (possibly)
-
-    ## rewards
-
-    -   Score
-    -   Title
-
-    ## lessons
-
-    -   Unit #
