@@ -49,10 +49,9 @@ const quizResume = async (req, res) => {
     //QUERY DB FOR ALL RECORDS WITH USER ID
     const savedQuizData = await Progress.findAll({
         where: {
-            User_Id: 9
+            User_Id: req.session.user_id
         }
     })    
-    
     
     const remainingQuestionIds = JSON.parse(savedQuizData[0].dataValues.Remaining_Question_Ids);
     const quizLength = parseInt(savedQuizData[0].dataValues.Quiz_Length);
@@ -64,8 +63,8 @@ const quizResume = async (req, res) => {
     req.session.score = savedQuizData[0].dataValues.Score;
     req.session.quizLength = quizLength;
     
-    res.json(savedQuizData);
-    return
+    // res.json(savedQuizData);
+    // return
     res.redirect('/quiz/question')
 }
 
