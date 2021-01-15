@@ -65,12 +65,12 @@ My team and I created an App called "DigitalCraftquizzes" to assist students wit
 
 ---
 
-<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/miro.png" width="800" height="700" alt="screenshot miro" />
+<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/miro.png" width="700" height="1000" alt="screenshot miro" />
 
 
-<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/google-sheets.png" width="800" height="700" alt="screenshot google sheets" />
+<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/google-sheets.png" width="700" height="1000" alt="screenshot google sheets" />
 
 
-<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/figma.png" width="800" height="700" alt="screenshot figma" />
+<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/figma.png" width="700" height="1000" alt="screenshot figma" />
 
 
