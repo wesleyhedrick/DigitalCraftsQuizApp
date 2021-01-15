@@ -26,8 +26,6 @@ My team and I created an App called "DigitalCraftquizzes" to assist students wit
 
 ## Tools & Languages used in this project:
 
-> ##### **Main Tools**
-
 -   [Node.js](https://nodejs.org/en/)
 -   [Express.js](https://expressjs.com)
 -   [Sequelize.js](https://sequelize.org)
