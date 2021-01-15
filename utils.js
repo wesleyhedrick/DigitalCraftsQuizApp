@@ -3,7 +3,6 @@ const layout = {
         header: '/partials/header',
         footer: '/partials/footer'
     }
-
 };
 
 function shuffle(array) {
@@ -93,11 +92,36 @@ async function updateLeaderboard(req, Users, Leaderboard){
     }
 }
 
+async function checkSavedProgress(req){
+    //Check to see if they have saved progress
+    
+    const user = await Users.findOne({
+        where: {
+            Username: req.session.username
+        }
+    });
+
+    const savedProgress = await Progress.findAll({
+        where: {
+            User_Id: user.id
+        }
+    });
+
+    if(savedProgress){
+        //Render page to alert of saved progress
+        res.send('You have saved progress')
+    } else {
+        //Render standard quiz settings page
+        res.send('Quiz settings')
+    }
+}
+
 module.exports = {
     layout, 
     shuffle,
     createArrayOfAnswers,
     setUpSession, 
     getMissedQandA,
-    updateLeaderboard
+    updateLeaderboard, 
+    checkSavedProgress
 };

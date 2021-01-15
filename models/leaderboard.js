@@ -16,6 +16,7 @@ module.exports = () => {
     {
       // Model attributes are defined here
       User_Id: DataTypes.INTEGER,
+      Username: DataTypes.STRING,
       Score: DataTypes.INTEGER,
       Badge_Id: DataTypes.INTEGER,
     },

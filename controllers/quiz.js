@@ -1,4 +1,10 @@
-const {Users, Questions, Category, Question_Types, Leaderboard} = require('../models')
+const {
+    Users, 
+    Questions, 
+    Category, 
+    Question_Types, 
+    Leaderboard, 
+    Progress} = require('../models')
 const {
     shuffle, 
     createArrayOfAnswers, 
@@ -8,25 +14,26 @@ const {
     updateLeaderboard
 } = require('../utils')
 
+
 const quizSettings = async (req, res) => {
     
     const categoryObjectDB = await Category.findAll({
         attributes: ['id', 'category_title']
     })
-
+    
     const typesObjectDB = await Question_Types.findAll({
         attributes: ['id','Type']
     })
-
+    
     const categories = categoryObjectDB.map(item => item.dataValues)
     const types = typesObjectDB.map(item => item.dataValues)
     categories.push({id:13, category_title: 'All the things'});
-
+    
     console.log(categories)
     console.log(types);
     // res.json(categoryObjectDB)
     // return
-
+    
     res.render('quiz-settings', {
         locals: {
             categories, 
@@ -37,6 +44,31 @@ const quizSettings = async (req, res) => {
         }
     })
 }
+
+const quizResume = async (req, res) => {
+    //QUERY DB FOR ALL RECORDS WITH USER ID
+    const savedQuizData = await Progress.findAll({
+        where: {
+            User_Id: 9
+        }
+    })    
+    
+    
+    const remainingQuestionIds = JSON.parse(savedQuizData[0].dataValues.Remaining_Question_Ids);
+    const quizLength = parseInt(savedQuizData[0].dataValues.Quiz_Length);
+    let questionSpacer = - quizLength - remainingQuestionIds.length;
+    questionSpacer = Array.from({length: questionSpacer}, (_,i) => i="a");
+    questionIds = [...questionSpacer, ...remainingQuestionIds]
+    req.session.questionNum = savedQuizData[0].dataValues.Question_Num;
+    req.session.questionIds = questionIds
+    req.session.score = savedQuizData[0].dataValues.Score;
+    req.session.quizLength = quizLength;
+    
+    res.json(savedQuizData);
+    return
+    res.redirect('/quiz/question')
+}
+
 
 const quizStart = async (req, res) => {
     //Get form data from req.body
@@ -71,14 +103,14 @@ const quizStart = async (req, res) => {
 const quizQuestion = async (req, res) => {
     let length = req.session.questionIds.length;
     console.log('Question Ids length', length);
-    
+    req.session.questionIds = req.session.questionIds.filter(item => item != "a");
+
     questionObject = await Questions.findOne({
         where: {
             id: req.session.questionIds.pop()
         }
     });
     
-    console.log('this many questions to go', questionObject.length);
     req.session.thisQuestionId = questionObject.id
     req.session.questionObject = questionObject;
     let answers = createArrayOfAnswers(questionObject);
@@ -208,5 +240,6 @@ module.exports = {
     quizQuestion,
     quizStart,
     questionFeedback,
-    quizFeedback
+    quizFeedback, 
+    quizResume
 }

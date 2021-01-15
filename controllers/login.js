@@ -13,6 +13,7 @@ const loginVerify = async (req, res) => {
     //Store username in session
     req.session.username = username;
     
+    
     // Check to see if they exist in the database. If so redirect to quiz selection page
     const user = await Users.findOne({
         where: {
