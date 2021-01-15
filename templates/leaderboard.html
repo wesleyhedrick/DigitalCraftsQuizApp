@@ -27,7 +27,7 @@
                 ${leaderboard.map(data =>
                     `<tr>
                         <td>
-                            ${data.dataValues.User_Id}
+                            ${data.dataValues.Username}
                         </td>
                         <td>
                             ${data.dataValues.Score}
@@ -36,7 +36,7 @@
                             ${data.dataValues.Badge_Id}
                         </td>
                     </tr>`
-                    )
+                    ).join('')
                 }
             </table>
     </div>

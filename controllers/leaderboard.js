@@ -2,7 +2,10 @@ const {Leaderboard} = require('../models');
 
 const leaderboard = async (req, res) => {
     // console.log('dir', process.cwd())     
-  const leaderboardData = await Leaderboard.findAll();
+  const leaderboardData = await Leaderboard.findAll({
+      order: [
+          ['Score', 'DESC']
+      ]});
 
   console.log(leaderboardData);
 //   res.json(leaderboardData)

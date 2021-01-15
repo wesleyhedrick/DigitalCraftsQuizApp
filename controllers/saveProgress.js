@@ -20,6 +20,8 @@ const saveProgress = async (req, res) => {
                 Player_Selection: item.wrongAnswer,
                 Remaining_Question_Ids: JSON.stringify(questionIds),
                 User_Id: user_id,
+                Quiz_Length: req.session.quizLength,
+                Question_Num: req.session.questionNum
             });
         }));
    

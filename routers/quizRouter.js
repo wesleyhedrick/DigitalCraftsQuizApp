@@ -8,4 +8,5 @@ router.get('/', quizController.quizSettings)
       .get('/question', quizController.quizQuestion) 
       .post('/question', quizController.questionFeedback)  
       .get('/quiz-feedback', quizController.quizFeedback)
+      .get('/quiz-resume', quizController.quizResume)
 module.exports = router

@@ -13,12 +13,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
+  
   Progress.init({
     Score: DataTypes.INTEGER,
     Missed_Question_Id: DataTypes.INTEGER,
     Player_Selection: DataTypes.STRING,
     Remaining_Question_Ids: DataTypes.STRING,
-    User_Id: DataTypes.INTEGER
+    User_Id: DataTypes.INTEGER, 
+    Quiz_Length: DataTypes.INTEGER, 
+    Question_Num: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Progress',
