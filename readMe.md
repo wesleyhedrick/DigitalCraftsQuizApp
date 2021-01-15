@@ -66,7 +66,7 @@ My team and I created an App called "DigitalCraftquizzes" to assist students wit
 
 ---
 
-<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/miro.png" width="1000" height="450" alt="screenshot miro" />
+<img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/miro.png" width="1000" height="350" alt="screenshot miro" />
 
 
 <img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/google-sheets.png" width="1000" height="800" alt="screenshot google sheets" />
