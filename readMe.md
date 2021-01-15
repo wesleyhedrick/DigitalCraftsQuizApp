@@ -24,7 +24,7 @@ My team and I created an App called "DigitalCraftquizzes" to assist students wit
 
 
 
-## Tools used in this project:
+## Tools & Languages used in this project:
 
 > ##### **Main Tools**
 
@@ -41,16 +41,10 @@ My team and I created an App called "DigitalCraftquizzes" to assist students wit
 -   [Javascript](https://www.javascript.com)
 -   [HTML](https://html.com)
 -   [CSS](https://www.w3schools.com/html/)
+-   [Miro](https://miro.com/)
+-   [Figma](https://www.figma.com/)
+-   [Google Sheets](https://www.google.com/sheets/about/)
 
-> #####  **Planning**
-
-* [Miro](https://miro.com/)
-
-* [Figma](https://www.figma.com/)
-
-* [Google Sheets](https://www.google.com/sheets/about/)
-
-  
 
 ## User Stories:
 
