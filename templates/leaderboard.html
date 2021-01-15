@@ -11,7 +11,7 @@
     ${header}
     <div class="header-title">
         <h1>Leaderboard</h1>
-        <div class="card">
+        <div class="card">            
             <table>
                 <tr>
                     <th>
@@ -27,18 +27,19 @@
                 ${leaderboard.map(data =>
                     `<tr>
                         <td>
-                            ${data.dataValues.User_Id}
+                            ${data.dataValues.Username}
                         </td>
                         <td>
-                            ${data.dataValues.Score}
+                            <!-- ${data.dataValues.Score} -->
                         </td>
                         <td>
-                            ${data.dataValues.Badge_Id}
+                            <!-- ${data.dataValues.Badge_Id} -->
                         </td>
                     </tr>`
                     )
                 }
             </table>
+        </div>    
     </div>
 
     ${footer}

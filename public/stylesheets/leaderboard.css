@@ -5,14 +5,18 @@
 }
 
 body {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh; */
     background-color: #EFEBE7 ;
     font-family: 'Poppins', sans-serif;
 
 }
+
+    
+    
+
 
 .header-title {
  text-align: center;
@@ -27,6 +31,8 @@ body {
     border-radius: 10px;
     background: #F6F4F2;
     margin: 40px;
+    justify-content: space-evenly;
+    
 }
 
 span {
@@ -60,7 +66,9 @@ a {
 .header-container {
     display: flex;
     justify-content: space-between;
-    margin: 60px;
+    align-items: center;
+    padding: 1em;
+
 }
 
 .logo img {
