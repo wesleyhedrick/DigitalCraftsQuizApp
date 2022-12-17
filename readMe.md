@@ -1,4 +1,6 @@
-![DigitalCraft-gif](https://media.giphy.com/media/5iJlmLynD5KEIgXMP9/giphy.gif)
+![DigitalCraft-gif1](https://media.giphy.com/media/s7SNYRWW3N5cE05e8f/giphy.gif)
+![DigitalCraft-gif2](https://media.giphy.com/media/5iJlmLynD5KEIgXMP9/giphy.gif)
+![DigitalCraft-gif3](https://media.giphy.com/media/GGH0jbEVmOG3kuedlo/giphy.gif)
 
 <img src="https://github.com/wesleyhedrick/DigitalCraftsQuizApp/blob/master/public/stylesheets/images/readme-banner.png" align="middle" src="image.jpg" 
 width="800" height="200" alt="Header picture" />
